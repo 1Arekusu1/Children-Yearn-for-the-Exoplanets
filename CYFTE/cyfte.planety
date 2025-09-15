@@ -1,0 +1,380 @@
+planety;
+
+mod CYFTE
+description "Mod that brings community made Interstellar Update"
+{
+    debdeb = create_star("Debdeb");
+
+    debdeb.galactic_position = [-0.5, 0, -2.5];
+    debdeb.radius = 117000000;
+    debdeb.surface_gravity = kerbol.surface_gravity;
+    debdeb.rotation = 352500;
+    debdeb.axial_tilt = [33, 25, -39];
+
+    debdeb.surface.fresnel.color = #fff4ed;
+    debdeb.surface.emission_color_near = #fcede6;
+    debdeb.surface.emission_color_far = #fcece8;
+    debdeb.light.color = #ffe9de;
+
+
+    // CHARR ================================================================================
+    charr = create_terrestrial_body("Charr");
+
+    charr.description = "Heat blasted world of iron";
+
+    charr.orbit = [
+        around: debdeb,
+        inclination: 5,
+        eccentricity: 0,
+        semi_major_axis: 2235826163,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 45,
+        mean_anomaly_at_epoch: 3.14
+    ];
+
+    charr.orbit_color = #40230d;
+
+    charr.radius = 350000;
+    charr.rotation = 43200;
+    charr.axial_tilt = [0, 0, 0];
+    charr.surface_gravity = 0.4;
+
+    charr.terrain.scaled_space_texture = read_texture_from_jpg("charr/charr_color.jpg");
+    charr.terrain.height_scale = 11000;
+    charr.terrain.global_heightmap = read_heightmap_from_png("charr/charr_height.png");
+
+
+    charr.music = moho.music;
+
+    // OVIN ====================================================================================
+    ovin = create_terrestrial_body("Ovin");
+
+    ovin.description = "Ovin is a terrestrial super-Kerbin, 60% larger than Kerbin with a gravity of 4G’s. Ovin has no tall mountains - this is a smashed, scorched landscape.";
+
+    ovin.orbit = [
+        around: debdeb,
+        inclination: 3,
+        eccentricity: 0,
+        semi_major_axis: 6937227108,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 90,
+        mean_anomaly_at_epoch: 3.14
+    ];
+
+    ovin.orbit_color = #4a4035;
+
+    ovin.radius = 960000;
+    ovin.rotation = 10800;
+    ovin.axial_tilt = [15, 0, 0];
+    ovin.surface_gravity = 4;
+
+    ovin.terrain.scaled_space_texture = read_texture_from_jpg("ovin/ovin_color.jpg");
+    ovin.terrain.height_scale = 7000;
+    ovin.terrain.global_heightmap = read_heightmap_from_png("ovin/ovin_height.png");
+
+
+    ring_dust = create_ring_dust();
+    ring_dust.density = 700;
+    ring_rocks = create_ring_rocks();
+    ring_rocks.density = 180;
+
+    ovin.rings.add([
+        inner_radius: 1824000,
+        outer_radius: 3484800,
+        particles: [ring_dust, ring_rocks],
+        gradient: read_texture_from_png("ovin/ovin_ring.png")
+    ]);
+
+    ovin.music = eve.music;
+
+    // GURDAMMA ================================================================================
+    gurdamma = create_terrestrial_body("Gurdamma");
+
+    gurdamma.description = "Gurdamma is a young terrestrial planet that's still experiencing heavy asteroid bombardment, much like Kerbin did billions of years ago.";
+
+    gurdamma.orbit = [
+        around: debdeb,
+        inclination: 0,
+        eccentricity: 0.05,
+        semi_major_axis: 10115274282,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 30,
+        mean_anomaly_at_epoch: 3.14
+    ];
+
+    gurdamma.orbit_color = #2d393d;
+
+    gurdamma.radius = 636636;
+    gurdamma.rotation = 14400;
+    gurdamma.axial_tilt = [37, 0, 0];
+    gurdamma.surface_gravity = 0.85;
+
+    gurdamma.terrain.scaled_space_texture = read_texture_from_jpg("gurdamma/gurdamma_color.jpg");
+    gurdamma.terrain.height_scale = 12706;
+    gurdamma.terrain.global_heightmap = read_heightmap_from_png("gurdamma/gurdamma_height.png");
+
+    gurdamma.rings.add([
+        inner_radius: 1591590,
+        outer_radius: 1846244,
+        particles: [ring_dust, ring_rocks],
+        gradient: read_texture_from_png("gurdamma/gurdamma_ring.png")
+    ]);
+
+    gurdamma.rings.add([
+        inner_radius: 2393751,
+        outer_radius: 2673871,
+        particles: [ring_dust, ring_rocks],
+        gradient: read_texture_from_png("gurdamma/gurdamma_ring.png")
+    ]);
+
+    gurdamma.music = kerbin.music;
+
+    // DONK ================================================================================
+    donk = create_terrestrial_body("Donk");
+
+    donk.description = "Donk clueless";
+
+    donk.orbit = [
+        around: gurdamma,
+        inclination: 0.5,
+        eccentricity: 0.0,
+        semi_major_axis: 2120000,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 30,
+        mean_anomaly_at_epoch: 3.14
+    ];
+
+    donk.orbit_color = #F6F1D5;
+
+    donk.radius = 95495;
+    donk.rotation = 114400;
+    donk.axial_tilt = [0, 0, 0];
+    donk.surface_gravity = 0.16;
+
+    donk.terrain.scaled_space_texture = read_texture_from_jpg("donk/donk_color.jpg");
+    donk.terrain.height_scale = 7000;
+    donk.terrain.global_heightmap = read_heightmap_from_png("donk/donk_height.png");
+
+
+	donk.music = mun.music;
+
+	// GUP ==================================================================================
+    gup = create_terrestrial_body("Gup");
+
+    gup.description = "Gup clueless";
+
+    gup.orbit = [
+        around: gurdamma,
+        inclination: 20.0,
+        eccentricity: 0.6,
+        semi_major_axis: 38343205,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 280,
+        mean_anomaly_at_epoch: 0.9
+    ];
+
+    gup.orbit_color = #DADBDD;
+
+    gup.radius = 75000;
+    gup.rotation = 19400;
+    gup.axial_tilt = [0, 0, 0];
+    gup.surface_gravity = 0.06;
+
+    gup.terrain.scaled_space_texture = read_texture_from_jpg("gup/gup_color.jpg");
+    gup.terrain.height_scale = 7000;
+    gup.terrain.global_heightmap = read_heightmap_from_png("gup/gup_height.png");
+
+	gup.music = minmus.music;
+
+	// LAPAT ==================================================================================
+
+	lapat = create_terrestrial_body("Lapat");
+
+    lapat.description = "Heat blasted world of iron";
+
+    lapat.orbit = [
+        around: debdeb,
+        inclination: 2,
+        eccentricity: 0.01,
+        semi_major_axis: 14110937263,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 20.0,
+        mean_anomaly_at_epoch: 3.14
+    ];
+
+    lapat.orbit_color = #2e1418;
+
+    lapat.radius = 430000;
+    lapat.rotation = 16600;
+    lapat.axial_tilt = [14, 0, 0];
+    lapat.surface_gravity = 0.65;
+
+    lapat.terrain.scaled_space_texture = read_texture_from_png("lapat/lapat_color.jpg");
+    lapat.terrain.height_scale = 11000;
+    lapat.terrain.global_heightmap = read_heightmap_from_png("lapat/lapat_height.png");
+
+
+    lapat.music = duna.music;
+
+	//GLUMO ====================================================================================
+
+	glumo = create_terrestrial_body("Glumo");
+
+    glumo.description = "blue balls";
+
+    glumo.orbit = [
+        around: debdeb,
+        inclination: 5,
+        eccentricity: 0,
+        semi_major_axis: 48333285911,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 170.0,
+        mean_anomaly_at_epoch: 3.14
+    ];
+
+    glumo.orbit_color = #422b2b;
+
+    glumo.radius = 7100000;
+    glumo.rotation = 11600;
+    glumo.axial_tilt = [5, 0, 0];
+    glumo.surface_gravity = 1.14;
+
+    glumo.terrain.scaled_space_texture = read_texture_from_jpg("glumo/glumo_color.jpg");
+    glumo.terrain.height_scale = 1800;
+    glumo.terrain.global_heightmap = read_heightmap_from_png("glumo/glumo_scaled_h.png");
+
+	    glumo.rings.add([
+        inner_radius: 10650000,
+        outer_radius: 16338000,
+        particles: [ring_dust, ring_rocks],
+        gradient: read_texture_from_png("glumo/glumo_ring1.png")
+    ]);
+
+    	    glumo.rings.add([
+        inner_radius: 17750000,
+        outer_radius: 22710000,
+        particles: [ring_dust, ring_rocks],
+        gradient: read_texture_from_png("glumo/glumo_ring2.png")
+    ]);
+
+    glumo.music = jool.music;
+
+	// NOJ ====================================================================================
+
+	noj = create_terrestrial_body("Noj");
+
+    noj.description = "noj moooon";
+
+    noj.orbit = [
+        around: glumo,
+        inclination: 0,
+        eccentricity: 0.2,
+        semi_major_axis: 20000000,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 0.12,
+        mean_anomaly_at_epoch: 0.9
+    ];
+
+    noj.orbit_color = #C4A484;
+
+    noj.radius = 20570;
+    noj.rotation = 18200;
+    noj.axial_tilt = [0, 90, 0];
+    noj.surface_gravity = 0.05;
+
+    noj.terrain.scaled_space_texture = read_texture_from_jpg("noj/noj_color.jpg");
+    noj.terrain.height_scale = 7800;
+    noj.terrain.global_heightmap = read_heightmap_from_png("noj/noj_height.png");
+
+    noj.music = pol.music;
+    
+	// MERBEL ====================================================================================
+
+	merbel = create_terrestrial_body("Merbel");
+
+    merbel.description = "merbel moooon";
+
+    merbel.orbit = [
+        around: glumo,
+        inclination: 64.0,
+        eccentricity: 0.3,
+        semi_major_axis: 65938002.0,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 54.0,
+        mean_anomaly_at_epoch: 0.9
+    ];
+
+    merbel.orbit_color = #a6dced;
+
+    merbel.radius = 257000;
+    merbel.rotation = 13200;
+    merbel.axial_tilt = [0.1, 0, 0];
+    merbel.surface_gravity = 0.15;
+
+    merbel.terrain.scaled_space_texture = read_texture_from_jpg("merbel/merbel_color.jpg");
+    merbel.terrain.height_scale = 1900;
+    merbel.terrain.global_heightmap = read_heightmap_from_png("merbel/merbel_height.png");
+
+    merbel.music = vall.music;
+
+
+	// DORAU =====================================================================================
+	
+	dorau = create_terrestrial_body("Dorau");
+
+    dorau.description = "dorau";
+
+    dorau.orbit = [
+        around: debdeb,
+        inclination: 0,
+        eccentricity: 0.1,
+        semi_major_axis: 108332572958,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 59,
+        mean_anomaly_at_epoch: 3.14
+    ];
+
+    dorau.orbit_color = #610f1c80;
+
+    dorau.radius = 189000;
+    dorau.rotation = 23200;
+    dorau.axial_tilt = [0.1, 0, 0];
+    dorau.surface_gravity = 0.1;
+
+    dorau.terrain.scaled_space_texture = read_texture_from_jpg("dorau/dorau_color.jpg");
+    dorau.terrain.height_scale = 4000;
+    dorau.terrain.global_heightmap = read_heightmap_from_png("dorau/dorau_height.png");
+
+
+    dorau.music = eeloo.music;
+
+	// BIS ========================================================================================
+
+	bis = create_terrestrial_body("Bis");
+
+    bis.description = "dorau moon";
+
+    bis.orbit = [
+        around: dorau,
+        inclination: 74,
+        eccentricity: 0.6,
+        semi_major_axis: 41992746,
+        longitude_of_ascending_node: 0,
+        argument_of_periapsis: 130,
+        mean_anomaly_at_epoch: 0.9
+    ];
+
+    bis.orbit_color = #2c2b4280;
+
+    bis.radius = 180000;
+    bis.rotation = 1210000;
+    bis.axial_tilt = [0.1, 0, 0];
+    bis.surface_gravity = 0.18;
+
+    bis.terrain.scaled_space_texture = read_texture_from_jpg("bis/bis_color.jpg");
+    bis.terrain.height_scale = 11000;
+    bis.terrain.global_heightmap = read_heightmap_from_png("bis/bis_height.png");
+
+
+    bis.music = eeloo.music;
+}
