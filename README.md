@@ -1,4 +1,4 @@
-![]https://i.imgur.com/g6VeEDD.png
+![](https://i.imgur.com/g6VeEDD.png)
 # Children Yearn for the Exoplanets (working title)
 **CYFTE aims to bring into the game the interstellar bodies from KSP2 that have been shown but never released. Everything is subject to change and the project is still in a very early stage of development.**
 
