@@ -9,7 +9,7 @@ Current release contains barebones unfinished debdeb without any ground textures
 **Tuun**
 **Qeg**
 
-Join ![KSP2 Modding Society](https://discord.gg/KnThewAw)
+Join [KSP2 Modding Society](https://discord.gg/KnThewAw)
 
 **Glumo & Merbel**
 ![](https://i.imgur.com/jQ5JPJ8.png)
